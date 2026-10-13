@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="ky">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Нуртилек & Тансулуу — Той чакыруусу</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:wght@400;500&family=Noto+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#111c30;--navy2:#1a2a45;--ivory:#f5f1ea;--ink:#232b3a;--mute:#6b7280;--gold:#b89b63;--line:rgba(184,155,99,.45);
+/* кочкор мүйүз (бараний рог) — повторяющийся национальный орнамент */
+--horn:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='30' viewBox='0 0 64 30' fill='none' stroke='%23b89b63' stroke-width='1.5' stroke-linecap='round'%3E%3Cpath d='M32 14C32 6 22 3 16 8C11 12 13 19 19 18C23 17 23 12 19.5 12'/%3E%3Cpath d='M32 14C32 6 42 3 48 8C53 12 51 19 45 18C41 17 41 12 44.5 12'/%3E%3Cpath d='M32 19L35.5 23L32 27L28.5 23Z'/%3E%3Cpath d='M0 15H8M56 15H64'/%3E%3C/svg%3E")}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--ivory);color:var(--ink);font-family:'Noto Sans','Helvetica Neue',Arial,sans-serif;font-weight:300;font-size:18px;line-height:1.7;text-align:center;overflow-x:hidden}
+h2{font-family:'Noto Serif Display',Georgia,serif;font-weight:400;font-size:32px;line-height:1.2;margin:0 0 22px}
+section{padding:64px 28px}
+.in{max-width:480px;margin:0 auto}
+.dark{background:var(--navy);color:#e9e4d8}
+.dark h2{color:#fff}
+
+/* орнаментальная лента */
+.band{height:30px;background:var(--horn) 0 0/64px 30px repeat-x;opacity:.9}
+.band.sm{height:30px;margin:0 auto 26px;max-width:192px;animation:none;background-position:center}
+@keyframes slide{to{background-position-x:64px}}
+.sec{background:var(--navy);padding:6px 0}
+
+/* герой */
+.hero{min-height:100svh;display:grid;place-items:center;padding:calc(64px + env(safe-area-inset-top,0px)) 36px calc(64px + env(safe-area-inset-bottom,0px));position:relative;overflow:hidden;background:radial-gradient(ellipse at 50% 0,var(--navy2),var(--navy) 70%);color:#fff}
+.hero .band{position:absolute;left:24px;right:24px}
+.hero .band.t{top:24px}.hero .band.bt{bottom:24px;transform:scaleY(-1)}
+.co{position:absolute;width:82px;height:82px;fill:none;stroke:var(--gold);stroke-width:1.6;stroke-linecap:round}
+.co path{stroke-dasharray:1;stroke-dashoffset:1;animation:draw 3s .3s forwards}
+.co.tl{top:10px;left:10px}.co.tr{top:10px;right:10px;transform:scaleX(-1)}.co.bl{bottom:10px;left:10px;transform:scaleY(-1)}.co.br{bottom:10px;right:10px;transform:scale(-1)}
+@keyframes draw{to{stroke-dashoffset:0}}
+.hero>div:not(.au){position:relative;width:min(56vw,calc(92svh*.5513*.6));container-type:inline-size}
+.rwrap{position:relative;width:46cqw;margin:0 auto 5cqw}
+.rwrap::before{content:"";position:absolute;inset:-55%;background:radial-gradient(closest-side,rgba(232,211,160,.3),transparent);animation:glow 5s ease-in-out infinite}
+@keyframes glow{50%{transform:scale(1.15);opacity:.6}}
+.rings{position:relative;display:block;width:100%;overflow:visible;animation:flt 6s ease-in-out 2.6s infinite}
+@keyframes flt{50%{transform:translateY(-6px)}}
+.rl{animation:inl 2.2s .3s cubic-bezier(.2,.7,.2,1) both}
+.rr{animation:inr 2.2s .3s cubic-bezier(.2,.7,.2,1) both}
+@keyframes inl{from{opacity:0;transform:translateX(-80px) rotate(-12deg)}}
+@keyframes inr{from{opacity:0;transform:translateX(80px) rotate(12deg)}}
+.sp{fill:#fff;transform-box:fill-box;transform-origin:center;animation:tw 3.4s 2.4s infinite;opacity:0}
+.sp.b{animation-delay:3.6s}
+@keyframes tw{0%,100%{opacity:0;transform:scale(.2) rotate(0)}45%{opacity:1;transform:scale(1) rotate(45deg)}70%{opacity:0;transform:scale(.3) rotate(90deg)}}
+.dust{position:absolute;bottom:-10px;border-radius:50%;background:#e8d3a0;opacity:0;pointer-events:none;animation:rise linear infinite}
+@keyframes rise{15%{opacity:.7}100%{transform:translateY(-105vh);opacity:0}}
+
+.lead{color:var(--gold);font-size:13px;font-size:max(12px,4.6cqw);letter-spacing:.06em;margin:0 0 5cqw}
+.nm{font-family:'Noto Serif Display',Georgia,serif;font-size:34px;font-size:18cqw;line-height:1.08;margin:0}
+.sep{display:flex;align-items:center;justify-content:center;gap:3cqw;margin:2cqw auto;color:var(--gold);font-family:'Noto Serif Display',Georgia,serif;font-size:max(18px,9cqw)}
+.sep::before,.sep::after{content:"";width:16cqw;height:1px;background:var(--line)}
+.when{margin-top:7cqw;font-size:14px;font-size:max(13px,5.2cqw);letter-spacing:.03em}
+.when b{display:block;font-family:'Noto Serif Display',Georgia,serif;font-weight:400;font-size:22px;font-size:max(20px,9.2cqw);color:#fff}
+.fade{opacity:0;transform:translateY(14px);animation:up 1.4s 1.8s forwards}
+.sep.fade{animation-delay:3s}.when.fade{animation-delay:4s}
+@keyframes up{to{opacity:1;transform:none}}
+.gold{background:linear-gradient(100deg,#fff 30%,#e8d3a0 48%,#fff 66%) 0 0/250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;opacity:0;transform:translateY(14px);animation:up 1.4s 2.4s forwards,shine 5s 6s infinite}
+@keyframes shine{to{background-position:-150% 0}}
+
+.lt{max-width:420px;margin:0 auto}
+.rule{width:44px;height:1px;background:var(--gold);margin:26px auto}
+.facts{display:grid;grid-template-columns:1fr 1fr 1fr;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin:0 auto 34px}
+.facts div{padding:20px 4px}
+.facts div+div{border-left:1px solid var(--line)}
+.facts b{display:block;font-family:'Noto Serif Display',Georgia,serif;font-weight:400;font-size:34px;line-height:1.1}
+.facts small{color:var(--mute);font-size:15px}
+.cal{display:grid;grid-template-columns:repeat(7,1fr);max-width:340px;margin:0 auto;font-size:17px}
+.cal .h{color:var(--mute);font-size:14px;padding-bottom:6px}
+.cal span{aspect-ratio:1;display:grid;place-items:center}
+.cal .on{background:var(--navy);color:#fff;border-radius:50%;outline:1px solid var(--gold);outline-offset:3px;animation:pulse 2.6s infinite}
+@keyframes pulse{50%{outline-offset:6px;outline-color:rgba(184,155,99,.3)}}
+.mon{font-family:'Noto Serif Display',Georgia,serif;font-size:24px;margin-bottom:12px}
+.timer{display:grid;grid-template-columns:repeat(4,1fr);max-width:400px;margin:0 auto}
+.timer div+div{border-left:1px solid var(--line)}
+.timer b{display:block;font-family:'Noto Serif Display',Georgia,serif;font-weight:400;font-size:42px;line-height:1.1;color:#fff}
+.timer small{color:var(--gold);font-size:14px}
+.prog{text-align:left;max-width:380px;margin:0 auto}
+.prog div{display:grid;grid-template-columns:78px 1fr;gap:12px;padding:15px 0;border-bottom:1px solid rgba(35,43,58,.12);opacity:0;transform:translateX(-18px);transition:1s}
+.prog div:first-child{border-top:1px solid rgba(35,43,58,.12)}
+.show .prog div{opacity:1;transform:none}
+.show .prog div:nth-child(2){transition-delay:.2s}.show .prog div:nth-child(3){transition-delay:.4s}.show .prog div:nth-child(4){transition-delay:.6s}
+.prog b{font-family:'Noto Serif Display',Georgia,serif;font-weight:400;font-size:24px;color:var(--gold)}
+.btn{display:inline-block;margin-top:18px;padding:13px 34px;border:1px solid var(--gold);color:inherit;text-decoration:none;letter-spacing:.04em;transition:.3s}
+.btn:hover{background:var(--gold);color:var(--navy)}
+.btn:focus-visible,.ctl button:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.rv{opacity:0;transform:translateY(22px);transition:opacity 1.1s,transform 1.1s}
+.rv.show{opacity:1;transform:none}
+
+
+
+/* ===== узор-арка вместо бегущих лент ===== */
+.arch{position:absolute;left:50%;top:50%;width:min(90vw,calc(92svh*.5513));height:auto;transform:translate(-50%,-50%);overflow:visible;pointer-events:none;animation:br 6s ease-in-out 5s infinite}
+@keyframes br{50%{filter:drop-shadow(0 0 7px rgba(232,211,160,.5))}}
+.dr{stroke-dasharray:1;stroke-dashoffset:1;animation:draw 3.2s .4s cubic-bezier(.4,0,.2,1) forwards}
+.d2{animation-delay:.9s}.d3{animation-delay:1.8s}.d4{animation-delay:2.2s;animation-duration:3.4s}
+.pop,.lf{transform-box:fill-box;transform-origin:center;transform:scale(0);animation:pop .9s 1.6s cubic-bezier(.3,1.5,.5,1) forwards}
+.lf{transform-origin:left center;fill:rgba(184,155,99,.18);stroke-width:1}
+@keyframes pop{to{transform:scale(1)}}
+.au{position:absolute;width:90vmax;height:90vmax;border-radius:50%;pointer-events:none;animation:drift 22s ease-in-out infinite alternate}
+.au.a{left:-45vmax;top:-45vmax;background:radial-gradient(closest-side,rgba(184,155,99,.17),transparent)}
+.au.b{right:-50vmax;bottom:-50vmax;background:radial-gradient(closest-side,rgba(96,130,190,.22),transparent);animation-delay:-9s}
+@keyframes drift{to{transform:translate(12vmax,8vmax)}}
+
+/* ===== ОБЛОЖКА: ВОРОТА ===== */
+body:not(.open){overflow:hidden;height:100svh}
+body:not(.open) .hero,body:not(.open) .hero *,body:not(.open) .hero *::before{animation-play-state:paused!important}
+#cover{position:fixed;inset:0;z-index:50;overflow:hidden}
+#cover.gone{display:none}
+.half{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0,#1a2a45,#111c30 72%);transition:transform 1.7s .5s cubic-bezier(.76,0,.2,1)}
+.half.l{clip-path:inset(0 50% 0 0)}.half.r{clip-path:inset(0 0 0 50%)}
+#cover.open .half.l{transform:translateX(-52%)}#cover.open .half.r{transform:translateX(52%)}
+.seam{position:absolute;left:50%;top:0;bottom:0;width:1px;margin-left:-.5px;background:linear-gradient(transparent,var(--gold) 30%,var(--gold) 70%,transparent);opacity:0;transition:opacity .6s .3s}
+#cover.open .seam{opacity:1;animation:sm 1.4s .4s forwards}
+@keyframes sm{to{opacity:0}}
+.box{position:absolute;inset:0;display:grid;place-items:center;color:#fff;transition:opacity .55s}
+#cover.open .box{opacity:0;pointer-events:none}
+.box .frame{position:absolute;inset:16px;border:1px solid var(--line);pointer-events:none;opacity:0;animation:up 1.6s .2s forwards}
+.box .co{opacity:1}
+.box .band{position:absolute;left:104px;right:104px;top:24px;opacity:0;animation:up 1.6s .6s forwards}
+.box .band.bt{top:auto;bottom:24px;transform:scaleY(-1);animation-name:upf}
+@keyframes upf{to{opacity:.9}}
+.in2{position:relative;text-align:center;display:grid;justify-items:center;padding:60px 24px}
+.in2>*{opacity:0;animation:up 1.4s forwards}
+.k{color:var(--gold);letter-spacing:.14em;font-size:15px;margin:0 0 26px;animation-delay:.8s}
+.mono{position:relative;width:min(56vw,210px);aspect-ratio:1;display:grid;place-items:center;animation-delay:1.1s}
+.mono svg{position:absolute;inset:0;width:100%;height:100%;fill:none;stroke:var(--gold);overflow:visible}
+.mono .c{stroke-dasharray:1;stroke-dashoffset:1;animation:draw 3s 1.2s cubic-bezier(.4,0,.2,1) forwards}
+.mono .c2{animation-delay:1.6s}
+.mono .gl{position:absolute;inset:-30%;background:radial-gradient(closest-side,rgba(184,155,99,.09),transparent)}
+.mono .ltr{position:relative;margin-top:-8%;display:flex;align-items:baseline;gap:.18em;font-family:'Noto Serif Display',Georgia,serif;font-size:min(14.5vw,54px);line-height:1}
+.mono .ltr i{font-style:normal;color:var(--gold);font-size:.5em}
+.nms{font-family:'Noto Serif Display',Georgia,serif;font-size:clamp(22px,6.4vw,28px);margin:30px 0 0;animation-delay:2s}
+.dt{display:flex;align-items:center;gap:14px;margin:12px 0 0;color:#d9d3c4;letter-spacing:.06em;animation-delay:2.3s}
+.dt::before,.dt::after{content:"";width:34px;height:1px;background:var(--line)}
+.obtn{margin-top:38px;position:relative;padding:15px 44px;background:transparent;border:1px solid var(--gold);color:#fff;font:inherit;font-size:17px;letter-spacing:.12em;cursor:pointer;transition:background .4s,color .4s;animation-delay:2.7s}
+.obtn::after{content:"";position:absolute;inset:-7px;border:1px solid var(--line);transition:inset .4s,opacity .4s}
+.obtn:hover,.obtn:focus-visible{background:var(--gold);color:var(--navy)}
+.obtn:hover::after{inset:-11px;opacity:.5}
+.obtn:focus-visible{outline:2px solid #fff;outline-offset:10px}
+.rip{position:absolute;left:50%;top:50%;width:80px;height:80px;margin:-40px;border:1px solid #e8d3a0;border-radius:50%;opacity:0;pointer-events:none}
+#cover.open .rip{animation:rp 1.3s ease-out}
+@keyframes rp{from{opacity:.8;transform:scale(.6)}to{opacity:0;transform:scale(14)}}
+@media(max-height:640px){.mono{width:130px}.k{margin-bottom:14px}.nms{margin-top:18px}.obtn{margin-top:24px}}
+
+/* кнопки музыки и автопрокрутки */
+.ctl{position:fixed;right:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:10;display:flex;flex-direction:column;gap:10px}
+.ctl button{width:46px;height:46px;border-radius:50%;border:1px solid var(--gold);background:rgba(17,28,48,.88);color:var(--gold);font:20px/1 'Noto Serif Display',Georgia,serif;cursor:pointer;transition:.3s}
+.ctl button.on{background:var(--gold);color:var(--navy)}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.fade,.rv,.prog div{opacity:1;transform:none}.co path,.dr{stroke-dashoffset:0}.pop,.lf{transform:none}.gold{color:#fff;background:none}.rl,.rr{opacity:1}}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <symbol id="co" viewBox="0 0 100 100"><path pathLength="1" d="M4 96V34C4 17 17 4 34 4H96"/><path pathLength="1" d="M16 80V38C16 26 26 16 38 16H80"/><path pathLength="1" d="M30 30C30 46 48 50 55 39C61 29 51 21 43 27C38 31 42 38 47 35"/></symbol>
+</defs></svg>
+
+<div id="cover" role="dialog" aria-label="Чакыруу">
+  <div class="half l"></div><div class="half r"></div><div class="seam"></div>
+  <div class="box">
+    <div class="frame"></div>
+    <div class="band" aria-hidden="true"></div><div class="band bt" aria-hidden="true"></div>
+    <svg class="co tl" viewBox="0 0 100 100" aria-hidden="true"><use href="#co"/></svg><svg class="co tr" viewBox="0 0 100 100" aria-hidden="true"><use href="#co"/></svg><svg class="co bl" viewBox="0 0 100 100" aria-hidden="true"><use href="#co"/></svg><svg class="co br" viewBox="0 0 100 100" aria-hidden="true"><use href="#co"/></svg>
+    <div class="in2">
+      <p class="k">Үйлөнүү тоюна чакыруу</p>
+      <div class="mono" aria-hidden="true">
+        <div class="gl"></div>
+        <svg viewBox="-10 -4 220 206"><path class="c" pathLength="1" stroke-width="1.5" d="M100 176C30 128 8 92 8 64C8 38 28 22 52 22C74 22 91 34 100 52C109 34 126 22 148 22C172 22 192 38 192 64C192 92 170 128 100 176Z"/><path class="c c2" pathLength="1" stroke-width=".7" stroke-opacity=".6" d="M100 176C30 128 8 92 8 64C8 38 28 22 52 22C74 22 91 34 100 52C109 34 126 22 148 22C172 22 192 38 192 64C192 92 170 128 100 176Z" transform="translate(100 98) scale(.9) translate(-100 -98)"/><path class="pop" style="animation-delay:2.8s" fill="#111c30" stroke-width="1.2" d="M100 44l5 8-5 8-5-8z"/><g><g transform="translate(22 40) scale(1.5)"><g class="pop" style="animation-delay:2.8s"><ellipse cy="-5" rx="3" ry="5.2" transform="rotate(0)" fill="rgba(184,155,99,.16)"/><ellipse cy="-5" rx="3" ry="5.2" transform="rotate(72)" fill="rgba(184,155,99,.16)"/><ellipse cy="-5" rx="3" ry="5.2" transform="rotate(144)" fill="rgba(184,155,99,.16)"/><ellipse cy="-5" rx="3" ry="5.2" transform="rotate(216)" fill="rgba(184,155,99,.16)"/><ellipse cy="-5" rx="3" ry="5.2" transform="rotate(288)" fill="rgba(184,155,99,.16)"/><circle r="1.8" fill="#b89b63"/></g></g><g transform="translate(12 92) scale(1.15)"><g class="pop" style="animation-delay:3.0s"><ellipse cy="-5" rx="3" ry="5.2" transform="rotate(0)" fill="rgba(184,155,99,.16)"/><ellipse cy="-5" rx="3" ry="5.2" transform="rotate(72)" fill="rgba(184,155,99,.16)"/><ellipse cy="-5" rx="3" ry="5.2" transform="rotate(144)" fill="rgba(184,155,99,.16)"/><ellipse cy="-5" rx="3" ry="5.2" transform="rotate(216)" fill="rgba(184,155,99,.16)"/><ellipse cy="-5" rx="3" ry="5.2" transform="rotate(288)" fill="rgba(184,155,99,.16)"/><circle r="1.8" fill="#b89b63"/></g></g><g transform="translate(46 134) scale(1.05)"><g class="pop" style="animation-delay:3.2s"><ellipse cy="-5" rx="3" ry="5.2" transform="rotate(0)" fill="rgba(184,155,99,.16)"/><ellipse cy="-5" rx="3" ry="5.2" transform="rotate(72)" fill="rgba(184,155,99,.16)"/><ellipse cy="-5" rx="3" ry="5.2" transform="rotate(144)" fill="rgba(184,155,99,.16)"/><ellipse cy="-5" rx="3" ry="5.2" transform="rotate(216)" fill="rgba(184,155,99,.16)"/><ellipse cy="-5" rx="3" ry="5.2" transform="rotate(288)" fill="rgba(184,155,99,.16)"/><circle r="1.8" fill="#b89b63"/></g></g><g transform="translate(34 30) rotate(-50) scale(.75)"><path class="lf" style="animation-delay:3.4s" d="M0 0C4-6 12-6 18 0 12 6 4 6 0 0Z"/></g><g transform="translate(14 54) rotate(115) scale(.75)"><path class="lf" style="animation-delay:3.5s" d="M0 0C4-6 12-6 18 0 12 6 4 6 0 0Z"/></g><g transform="translate(14 106) rotate(85) scale(.75)"><path class="lf" style="animation-delay:3.6s" d="M0 0C4-6 12-6 18 0 12 6 4 6 0 0Z"/></g><g transform="translate(8 78) rotate(-105) scale(.75)"><path class="lf" style="animation-delay:3.7s" d="M0 0C4-6 12-6 18 0 12 6 4 6 0 0Z"/></g><g transform="translate(58 142) rotate(35) scale(.75)"><path class="lf" style="animation-delay:3.8s" d="M0 0C4-6 12-6 18 0 12 6 4 6 0 0Z"/></g><g transform="translate(38 146) rotate(125) scale(.75)"><path class="lf" style="animation-delay:3.9s" d="M0 0C4-6 12-6 18 0 12 6 4 6 0 0Z"/></g><g transform="translate(40 20) rotate(-20) scale(.75)"><path class="lf" style="animation-delay:4.0s" d="M0 0C4-6 12-6 18 0 12 6 4 6 0 0Z"/></g></g><g transform="translate(200 0) scale(-1 1)"><g transform="translate(22 40) scale(1.5)"><g class="pop" style="animation-delay:2.8s"><ellipse cy="-5" rx="3" ry="5.2" transform="rotate(0)" fill="rgba(184,155,99,.16)"/><ellipse cy="-5" rx="3" ry="5.2" transform="rotate(72)" fill="rgba(184,155,99,.16)"/><ellipse cy="-5" rx="3" ry="5.2" transform="rotate(144)" fill="rgba(184,155,99,.16)"/><ellipse cy="-5" rx="3" ry="5.2" transform="rotate(216)" fill="rgba(184,155,99,.16)"/><ellipse cy="-5" rx="3" ry="5.2" transform="rotate(288)" fill="rgba(184,155,99,.16)"/><circle r="1.8" fill="#b89b63"/></g></g><g transform="translate(12 92) scale(1.15)"><g class="pop" style="animation-delay:3.0s"><ellipse cy="-5" rx="3" ry="5.2" transform="rotate(0)" fill="rgba(184,155,99,.16)"/><ellipse cy="-5" rx="3" ry="5.2" transform="rotate(72)" fill="rgba(184,155,99,.16)"/><ellipse cy="-5" rx="3" ry="5.2" transform="rotate(144)" fill="rgba(184,155,99,.16)"/><ellipse cy="-5" rx="3" ry="5.2" transform="rotate(216)" fill="rgba(184,155,99,.16)"/><ellipse cy="-5" rx="3" ry="5.2" transform="rotate(288)" fill="rgba(184,155,99,.16)"/><circle r="1.8" fill="#b89b63"/></g></g><g transform="translate(46 134) scale(1.05)"><g class="pop" style="animation-delay:3.2s"><ellipse cy="-5" rx="3" ry="5.2" transform="rotate(0)" fill="rgba(184,155,99,.16)"/><ellipse cy="-5" rx="3" ry="5.2" transform="rotate(72)" fill="rgba(184,155,99,.16)"/><ellipse cy="-5" rx="3" ry="5.2" transform="rotate(144)" fill="rgba(184,155,99,.16)"/><ellipse cy="-5" rx="3" ry="5.2" transform="rotate(216)" fill="rgba(184,155,99,.16)"/><ellipse cy="-5" rx="3" ry="5.2" transform="rotate(288)" fill="rgba(184,155,99,.16)"/><circle r="1.8" fill="#b89b63"/></g></g><g transform="translate(34 30) rotate(-50) scale(.75)"><path class="lf" style="animation-delay:3.4s" d="M0 0C4-6 12-6 18 0 12 6 4 6 0 0Z"/></g><g transform="translate(14 54) rotate(115) scale(.75)"><path class="lf" style="animation-delay:3.5s" d="M0 0C4-6 12-6 18 0 12 6 4 6 0 0Z"/></g><g transform="translate(14 106) rotate(85) scale(.75)"><path class="lf" style="animation-delay:3.6s" d="M0 0C4-6 12-6 18 0 12 6 4 6 0 0Z"/></g><g transform="translate(8 78) rotate(-105) scale(.75)"><path class="lf" style="animation-delay:3.7s" d="M0 0C4-6 12-6 18 0 12 6 4 6 0 0Z"/></g><g transform="translate(58 142) rotate(35) scale(.75)"><path class="lf" style="animation-delay:3.8s" d="M0 0C4-6 12-6 18 0 12 6 4 6 0 0Z"/></g><g transform="translate(38 146) rotate(125) scale(.75)"><path class="lf" style="animation-delay:3.9s" d="M0 0C4-6 12-6 18 0 12 6 4 6 0 0Z"/></g><g transform="translate(40 20) rotate(-20) scale(.75)"><path class="lf" style="animation-delay:4.0s" d="M0 0C4-6 12-6 18 0 12 6 4 6 0 0Z"/></g></g><g transform="translate(100 181) scale(1.4)"><g class="pop" style="animation-delay:3.3s"><ellipse cy="-5" rx="3" ry="5.2" transform="rotate(0)" fill="rgba(184,155,99,.16)"/><ellipse cy="-5" rx="3" ry="5.2" transform="rotate(72)" fill="rgba(184,155,99,.16)"/><ellipse cy="-5" rx="3" ry="5.2" transform="rotate(144)" fill="rgba(184,155,99,.16)"/><ellipse cy="-5" rx="3" ry="5.2" transform="rotate(216)" fill="rgba(184,155,99,.16)"/><ellipse cy="-5" rx="3" ry="5.2" transform="rotate(288)" fill="rgba(184,155,99,.16)"/><circle r="1.8" fill="#b89b63"/></g></g><g transform="translate(108 178) rotate(15) scale(.75)"><path class="lf" style="animation-delay:4.0s" d="M0 0C4-6 12-6 18 0 12 6 4 6 0 0Z"/></g><g transform="translate(92 178) rotate(165) scale(.75)"><path class="lf" style="animation-delay:4.1s" d="M0 0C4-6 12-6 18 0 12 6 4 6 0 0Z"/></g></svg>
+        <div class="ltr"><span id="mG"></span><i>&</i><span id="mB"></span></div>
+      </div>
+      <p class="nms"><span id="cG"></span> & <span id="cB"></span></p>
+      <p class="dt" id="cD"></p>
+      <button class="obtn" id="openBtn">Чакырууну ачуу</button>
+    </div>
+    <span class="rip"></span>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="au a"></div><div class="au b"></div>
+  <svg class="arch" viewBox="0 0 430 780" fill="none" stroke="#b89b63" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path class="dr" pathLength="1" stroke-width="1.6" d="M20 760V215A195 195 0 0 1 410 215V760Z"/>
+    <path class="dr d2" pathLength="1" stroke-width="1" stroke-opacity=".6" d="M34 746V215A181 181 0 0 1 396 215V746Z"/>
+    <path class="dr d3" pathLength="1" stroke-width="1.3" d="M194 24C180 30 168 20 175 12C181 6 190 12 185 18M236 24C250 30 262 20 255 12C249 6 240 12 245 18"/>
+    <g class="pop"><circle cx="215" cy="20" r="19" fill="#111c30" stroke-width="1.4"/><path d="M215 7L228 20 215 33 202 20Z" stroke-width="1.2"/><circle cx="215" cy="20" r="2.6" fill="#b89b63"/></g>
+    <path class="pop" style="animation-delay:2s" fill="#b89b63" d="M20 207l6 8-6 8-6-8zM410 207l6 8-6 8-6-8z"/>
+    <path class="pop" style="animation-delay:2.2s" fill="#111c30" d="M215 749l9 11-9 11-9-11z"/>
+    <g><path class="dr d4" pathLength="1" stroke-width="1.3" d="M48 734C34 690 74 650 62 600C52 560 70 520 92 486"/><g transform="translate(47 706) rotate(-20) scale(.9)"><path class="lf" style="animation-delay:3.2s" d="M0 0C5-7 15-7 22 0 15 7 5 7 0 0Z"/></g><g transform="translate(58 640) rotate(-30) scale(.9)"><path class="lf" style="animation-delay:3.5s" d="M0 0C5-7 15-7 22 0 15 7 5 7 0 0Z"/></g><g transform="translate(62 602) rotate(-150) scale(.9)"><path class="lf" style="animation-delay:3.8s" d="M0 0C5-7 15-7 22 0 15 7 5 7 0 0Z"/></g><g transform="translate(60 566) rotate(-35) scale(.9)"><path class="lf" style="animation-delay:4.1s" d="M0 0C5-7 15-7 22 0 15 7 5 7 0 0Z"/></g><g transform="translate(70 528) rotate(-145) scale(.9)"><path class="lf" style="animation-delay:4.4s" d="M0 0C5-7 15-7 22 0 15 7 5 7 0 0Z"/></g><g transform="translate(86 496) rotate(-40) scale(.9)"><path class="lf" style="animation-delay:4.7s" d="M0 0C5-7 15-7 22 0 15 7 5 7 0 0Z"/></g><g transform="translate(92 482)"><g class="pop" style="animation-delay:5.2s"><ellipse cy="-6" rx="3.4" ry="6" transform="rotate(0)"/><ellipse cy="-6" rx="3.4" ry="6" transform="rotate(72)"/><ellipse cy="-6" rx="3.4" ry="6" transform="rotate(144)"/><ellipse cy="-6" rx="3.4" ry="6" transform="rotate(216)"/><ellipse cy="-6" rx="3.4" ry="6" transform="rotate(288)"/><circle r="2.2" fill="#b89b63"/></g></g></g>
+    <g transform="translate(430 0) scale(-1 1)"><path class="dr d4" pathLength="1" stroke-width="1.3" d="M48 734C34 690 74 650 62 600C52 560 70 520 92 486"/><g transform="translate(47 706) rotate(-20) scale(.9)"><path class="lf" style="animation-delay:3.2s" d="M0 0C5-7 15-7 22 0 15 7 5 7 0 0Z"/></g><g transform="translate(58 640) rotate(-30) scale(.9)"><path class="lf" style="animation-delay:3.5s" d="M0 0C5-7 15-7 22 0 15 7 5 7 0 0Z"/></g><g transform="translate(62 602) rotate(-150) scale(.9)"><path class="lf" style="animation-delay:3.8s" d="M0 0C5-7 15-7 22 0 15 7 5 7 0 0Z"/></g><g transform="translate(60 566) rotate(-35) scale(.9)"><path class="lf" style="animation-delay:4.1s" d="M0 0C5-7 15-7 22 0 15 7 5 7 0 0Z"/></g><g transform="translate(70 528) rotate(-145) scale(.9)"><path class="lf" style="animation-delay:4.4s" d="M0 0C5-7 15-7 22 0 15 7 5 7 0 0Z"/></g><g transform="translate(86 496) rotate(-40) scale(.9)"><path class="lf" style="animation-delay:4.7s" d="M0 0C5-7 15-7 22 0 15 7 5 7 0 0Z"/></g><g transform="translate(92 482)"><g class="pop" style="animation-delay:5.2s"><ellipse cy="-6" rx="3.4" ry="6" transform="rotate(0)"/><ellipse cy="-6" rx="3.4" ry="6" transform="rotate(72)"/><ellipse cy="-6" rx="3.4" ry="6" transform="rotate(144)"/><ellipse cy="-6" rx="3.4" ry="6" transform="rotate(216)"/><ellipse cy="-6" rx="3.4" ry="6" transform="rotate(288)"/><circle r="2.2" fill="#b89b63"/></g></g></g>
+  </svg>
+  <div>
+    <div class="rwrap" aria-hidden="true"><svg class="rings" viewBox="0 0 240 150">
+      <defs>
+        <linearGradient id="gg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f6e8bd"/><stop offset=".45" stop-color="#c9a45f"/><stop offset=".75" stop-color="#8f7236"/><stop offset="1" stop-color="#ead49a"/></linearGradient>
+        <g id="rg" fill="none"><circle r="48" stroke="url(#gg)" stroke-width="8"/><circle r="51.6" stroke="#fff" stroke-opacity=".45" stroke-width="1.2"/><circle r="44.4" stroke="#5c4720" stroke-opacity=".5" stroke-width="1"/></g>
+        <clipPath id="ct"><rect x="105" y="10" width="30" height="60"/></clipPath>
+      </defs>
+      <g class="rl"><use href="#rg" x="95" y="80"/></g>
+      <g class="rr"><use href="#rg" x="145" y="80"/></g>
+      <g class="rl" clip-path="url(#ct)"><use href="#rg" x="95" y="80"/></g>
+      <g class="rr"><path d="M145 14L153 23L145 32L137 23Z" fill="#fff" stroke="url(#gg)" stroke-width="1.6"/><path d="M137 23H153M145 14L141 23L145 32L149 23Z" fill="none" stroke="#c9a45f" stroke-width=".7"/></g>
+      <path class="sp" transform="translate(145 20)" d="M0-13L3-3 13 0 3 3 0 13-3 3-13 0-3-3Z"/>
+      <path class="sp b" transform="translate(70 44) scale(.6)" d="M0-13L3-3 13 0 3 3 0 13-3 3-13 0-3-3Z"/>
+    </svg></div>
+    <p class="lead fade">Үйлөнүү тоюна чакыруу</p>
+    <h1 class="nm gold" id="g"></h1>
+    <div class="sep fade">&</div>
+    <h1 class="nm gold" id="b" style="animation-delay:3.4s,7s"></h1>
+    <div class="when fade"><b id="dShort"></b><span id="tShort"></span></div>
+  </div>
+</header>
+
+<div class="sec"><div class="band" aria-hidden="true"></div></div>
+
+<section class="rv"><div class="lt">
+  <div class="band sm" aria-hidden="true"></div>
+  <h2>Урматтуу коногубуз!</h2>
+  <div class="rule"></div>
+  <p id="intro"></p>
+  <p style="color:var(--mute)">Сиздин келишиңиз биз үчүн чоң сыймык.</p>
+</div></section>
+
+<section class="rv" style="background:#fff"><div class="in">
+  <h2>Той күнү</h2>
+  <div class="facts">
+    <div><b id="fD"></b><small id="fM"></small></div>
+    <div><b id="fT"></b><small>саат</small></div>
+    <div><b id="fW"></b><small>апта күнү</small></div>
+  </div>
+  <div class="cal" id="cal"></div>
+</div></section>
+
+<section class="rv"><div class="in">
+  <h2>Тойдун дареги</h2>
+  <p id="venue" style="margin:0"></p>
+  <a class="btn" id="map" target="_blank" rel="noopener">Картадан көрүү</a>
+</div></section>
+
+<footer class="dark" style="padding:0 0 calc(60px + env(safe-area-inset-bottom,0px))">
+  <div class="band" style="margin-bottom:46px" aria-hidden="true"></div>
+  <p style="margin:0 0 10px;color:var(--gold)">Сый-урмат менен</p>
+  <div style="font-family:'Noto Serif Display',Georgia,serif;font-size:34px;color:#fff;margin-bottom:54px" id="sign"></div>
+  <div class="band sm" aria-hidden="true"></div>
+  <div class="in" style="padding:0 28px">
+    <h2>Тойго чейин калды</h2>
+    <div class="timer" id="timer"></div>
+    <p id="note" style="margin:16px 0 0;color:var(--gold)"></p>
+  </div>
+</footer>
+
+<div class="ctl">
+  <button id="mBtn" aria-label="Музыка" title="Музыка">♪</button>
+  <button id="aBtn" aria-label="Автоматтык жылдыруу" title="Автоматтык жылдыруу">↓</button>
+</div>
+<audio id="aud" loop preload="auto"></audio>
+
+<script>
+/* ===== НАСТРОЙКИ — меняйте только это ===== */
+const CONFIG = {
+  groom: "Нуртилек",
+  bride: "Тансулуу",
+  date: "2026-11-10T16:00",              // ГГГГ-ММ-ДДTЧЧ:ММ
+  venue: "«Рамазан» ресторану, Ош шаары",
+  mapUrl: "https://2gis.kg/osh/search/%D0%A0%D0%B0%D0%BC%D0%B0%D0%B7%D0%B0%D0%BD%20%D0%9E%D1%88/firm/70000001031379475/72.801045%2C40.572906?m=72.801661%2C40.572683%2F19.24",
+  intro: "Өмүрүбүздүн эң кубанычтуу күнүндө — үйлөнүү тоюбузда — сизди жаныбызда көрсөк деп, чын жүрөктөн чакырабыз. Кубанычыбызды бөлүшүп, жаңы үй-бүлөбүздүн башталышына күбө болуңуз.",
+  /* Музыка: положите mp3 рядом с этим файлом и впишите имя, например "song.mp3".
+     Если файла нет — играет встроенная нежная мелодия. */
+  musicFile: "The_Piano_Guys_-_A_Thousand_Years_48078419.mp3",
+  autoScrollSpeed: 38                    // пикселей в секунду (меньше = медленнее)
+};
+
+/* ===== КОД ===== */
+const $ = id => document.getElementById(id);
+const M = ["январь","февраль","март","апрель","май","июнь","июль","август","сентябрь","октябрь","ноябрь","декабрь"];
+const WD = ["жекшемби","дүйшөмбү","шейшемби","шаршемби","бейшемби","жума","ишемби"];
+const H = ["Дш","Шш","Шр","Бш","Жм","Иш","Жк"];
+const D = new Date(CONFIG.date), hm = D.toTimeString().slice(0,5);
+document.title = CONFIG.groom + " & " + CONFIG.bride;
+$("g").textContent = CONFIG.groom; $("b").textContent = CONFIG.bride; $("sign").textContent = CONFIG.groom + " & " + CONFIG.bride;
+$("dShort").textContent = D.getDate() + "-" + M[D.getMonth()] + ", " + D.getFullYear() + "-жыл";
+$("tShort").textContent = "саат " + hm;
+$("intro").textContent = CONFIG.intro;
+$("fD").textContent = D.getDate(); $("fM").textContent = M[D.getMonth()] + ", " + D.getFullYear() + "-жыл";
+$("fT").textContent = hm; $("fW").textContent = WD[D.getDay()];
+$("venue").textContent = CONFIG.venue; $("map").href = CONFIG.mapUrl;
+
+(function(){
+  const first = (new Date(D.getFullYear(), D.getMonth(), 1).getDay() + 6) % 7;
+  const n = new Date(D.getFullYear(), D.getMonth() + 1, 0).getDate();
+  let h = '<div class="mon" style="grid-column:1/-1">' + M[D.getMonth()][0].toUpperCase() + M[D.getMonth()].slice(1) + " " + D.getFullYear() + "</div>";
+  h += H.map(x => '<span class="h">' + x + "</span>").join("") + "<span></span>".repeat(first);
+  for (let i = 1; i <= n; i++) h += '<span' + (i === D.getDate() ? ' class="on"' : "") + ">" + i + "</span>";
+  $("cal").innerHTML = h;
+})();
+
+function tick(){
+  const t = D - new Date();
+  if (t <= 0){ $("timer").innerHTML = ""; $("note").textContent = "Той күнү келди! Баарыңызга чоң рахмат!"; return; }
+  const v = [Math.floor(t/864e5), Math.floor(t/36e5)%24, Math.floor(t/6e4)%60, Math.floor(t/1e3)%60], l = ["күн","саат","мүнөт","секунд"];
+  $("timer").innerHTML = v.map((x,i) => "<div><b>" + x + "</b><small>" + l[i] + "</small></div>").join("");
+}
+tick(); setInterval(tick, 1000);
+
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting){ e.target.classList.add("show"); io.unobserve(e.target); } }), { threshold: .15 });
+document.querySelectorAll(".rv").forEach(el => io.observe(el));
+
+
+/* золотая пыльца в герое */
+(function(){const h=document.querySelector(".hero");if(matchMedia("(prefers-reduced-motion:reduce)").matches)return;
+for(let i=0;i<18;i++){const d=document.createElement("span"),z=2+Math.random()*3;d.className="dust";
+d.style.cssText="left:"+Math.random()*100+"%;width:"+z+"px;height:"+z+"px;animation-duration:"+(9+Math.random()*9)+"s;animation-delay:"+Math.random()*10+"s";h.appendChild(d);}})();
+
+
+/* ---------- ОБЛОЖКА ---------- */
+$("cG").textContent = CONFIG.groom; $("cB").textContent = CONFIG.bride;
+$("mG").textContent = CONFIG.groom[0]; $("mB").textContent = CONFIG.bride[0];
+$("cD").textContent = D.getDate() + "-" + M[D.getMonth()] + ", " + D.getFullYear() + "-жыл";
+let opened = false;
+$("openBtn").onclick = () => {
+  if (opened) return; opened = true;
+  $("cover").classList.add("open");
+  document.body.classList.add("open"); scrollTo(0,0); // основная страница стартует сразу
+  wantMusic = true; playMusic();                      // клик — разрешает звук
+  setTimeout(() => $("cover").classList.add("gone"), 2400);
+  pauseUntil = performance.now() + 7000;
+};
+
+/* ---------- МУЗЫКА ---------- */
+const aud = $("aud"), mBtn = $("mBtn");
+let wantMusic = true, synth = null, useSynth = false;
+
+function makeSynth(){
+  const AC = window.AudioContext || window.webkitAudioContext; if (!AC) return null;
+  const ctx = new AC(), notes = [293.66,349.23,392,440,523.25,440,392,349.23,293.66,261.63,293.66,349.23,392,349.23,293.66,220];
+  let i = 0, timer = null;
+  const pluck = f => { const o = ctx.createOscillator(), g = ctx.createGain(); o.type = "triangle"; o.frequency.value = f;
+    g.gain.setValueAtTime(.0001, ctx.currentTime); g.gain.exponentialRampToValueAtTime(.16, ctx.currentTime + .02); g.gain.exponentialRampToValueAtTime(.0001, ctx.currentTime + 1.6);
+    o.connect(g).connect(ctx.destination); o.start(); o.stop(ctx.currentTime + 1.7); };
+  return { start(){ ctx.resume(); if (!timer) timer = setInterval(() => { pluck(notes[i % notes.length]); if (i % 4 === 0) pluck(notes[i % notes.length] / 2); i++; }, 520); },
+           stop(){ clearInterval(timer); timer = null; } };
+}
+function playMusic(){
+  if (!wantMusic) return;
+  if (useSynth){ synth = synth || makeSynth(); synth && synth.start(); mBtn.classList.add("on"); return; }
+  if (!aud.src) aud.src = CONFIG.musicFile;
+  aud.play().then(() => mBtn.classList.add("on")).catch(e => { if (e.name !== "NotAllowedError"){ useSynth = true; playMusic(); } });
+}
+function stopMusic(){ aud.pause(); synth && synth.stop(); mBtn.classList.remove("on"); }
+mBtn.onclick = e => { e.stopPropagation(); wantMusic = !wantMusic; wantMusic ? playMusic() : stopMusic(); };
+aud.addEventListener("error", () => { if (!useSynth){ useSynth = true; if (wantMusic) playMusic(); } });
+playMusic();                                    // попытка сразу; если браузер не разрешил — стартует с первого касания
+let started = false;
+["pointerdown","touchend","keydown","click"].forEach(ev => addEventListener(ev, () => {
+  if (started) return; started = true; if (wantMusic && !mBtn.classList.contains("on")) playMusic();
+}, { passive: true }));
+
+/* ---------- АВТОПРОКРУТКА ---------- */
+const aBtn = $("aBtn");
+let auto = !matchMedia("(prefers-reduced-motion:reduce)").matches, pos = 0, last = 0, pauseUntil = Infinity;
+function syncBtn(){ aBtn.classList.toggle("on", auto); }
+syncBtn();
+aBtn.onclick = e => { e.stopPropagation(); auto = !auto; pos = scrollY; pauseUntil = performance.now() + 300; syncBtn(); };
+["wheel","touchstart","touchmove","pointerdown","keydown"].forEach(ev => addEventListener(ev, () => { if (opened) pauseUntil = performance.now() + 3500; }, { passive: true }));
+function autoLoop(t){
+  const dt = Math.min(.05, (t - last) / 1000); last = t;
+  const max = document.documentElement.scrollHeight - innerHeight;
+  if (!auto || t < pauseUntil){ pos = scrollY; }
+  else {
+    pos += CONFIG.autoScrollSpeed * dt;
+    if (pos >= max){ pos = max; auto = false; syncBtn(); } else scrollTo(0, pos);
+  }
+  requestAnimationFrame(autoLoop);
+}
+requestAnimationFrame(autoLoop);
+</script>
+</body>
+</html>
